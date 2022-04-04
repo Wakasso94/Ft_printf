@@ -1,0 +1,20 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/mac/Desktop/42-project/ft_printf'
+mkdir -p obj/
+echo "\033[0;93mCompiling: src/ft_printf.c \033[0;39m"
+gcc -Wall -Werror -Wextra -I include -c src/ft_printf.c -o obj/ft_printf.o
+echo "\033[0;93mCompiling: src/ft_printf_utils.c \033[0;39m"
+gcc -Wall -Werror -Wextra -I include -c src/ft_printf_utils.c -o obj/ft_printf_utils.o
+echo "\033[0;93mCompiling: src/ft_print_ptr.c \033[0;39m"
+gcc -Wall -Werror -Wextra -I include -c src/ft_print_ptr.c -o obj/ft_print_ptr.o
+echo "\033[0;93mCompiling: src/ft_print_unsigned.c \033[0;39m"
+gcc -Wall -Werror -Wextra -I include -c src/ft_print_unsigned.c -o obj/ft_print_unsigned.o
+echo "\033[0;93mCompiling: src/ft_print_hex.c \033[0;39m"
+gcc -Wall -Werror -Wextra -I include -c src/ft_print_hex.c -o obj/ft_print_hex.o
+make -C libft
+cp libft/libft.a .
+mv libft.a libftprintf.a
+ar rcs libftprintf.a obj/ft_printf.o obj/ft_printf_utils.o obj/ft_print_ptr.o obj/ft_print_unsigned.o obj/ft_print_hex.o
+echo "\033[0;92mft_printf compiled!\033[0;39m"
+make: Leaving directory `/Users/mac/Desktop/42-project/ft_printf'
+ 
